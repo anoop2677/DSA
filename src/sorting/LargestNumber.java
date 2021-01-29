@@ -50,7 +50,7 @@ Explanation 2:
 
  Reorder the numbers to [9, 3, 2, 0] to form the largest number 9320.
  */
-package sorting2;
+package sorting;
 
 import java.util.Arrays;
 import java.util.Comparator;

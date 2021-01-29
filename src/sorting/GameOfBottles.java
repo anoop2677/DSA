@@ -56,7 +56,7 @@ Explanation 2:
 
  Both bottles will be visible.
  */
-package sorting2;
+package sorting;
 
 import java.util.HashMap;
 

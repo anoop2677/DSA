@@ -31,7 +31,7 @@ Input 2:
  A = [2, 4, 5]
  */
 
-package sorting2;
+package sorting;
 
 import java.util.Arrays;
 

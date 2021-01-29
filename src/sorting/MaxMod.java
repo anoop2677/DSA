@@ -43,7 +43,7 @@ Output 2:
  4
  */
 
-package sorting2;
+package sorting;
 
 public class MaxMod {
     public static int solve(int[] A) {

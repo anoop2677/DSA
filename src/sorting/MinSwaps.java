@@ -50,7 +50,7 @@ Explanation 2:
 
  You cannot sort it with lesser than 2 swaps.
  */
-package sorting2;
+package sorting;
 
 public class MinSwaps {
     public static int solve(int[] A) {

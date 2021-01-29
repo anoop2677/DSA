@@ -25,9 +25,10 @@ public class AllPermutations {
         return output;
     }
     public static void main(String[] args) {
-        int[] a = {1, 2, 3, 4};
+        int[] a = {1, 2, 3, 4, 5};
         ArrayList<int []> ret = new ArrayList<int []> ();
         ret = printAllRecursive(a.length, a, ret);
+        System.out.println(ret.size());
         for(int[] x: ret){
             System.out.println(Arrays.toString(x));
         }

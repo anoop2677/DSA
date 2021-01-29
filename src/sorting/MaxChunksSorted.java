@@ -52,7 +52,7 @@ Explanation 2:
  We can divide the array into 2 chunks.
  First chunk is [2, 0, 1] and second chunk is [3].
  */
-package sorting2;
+package sorting;
 
 public class MaxChunksSorted {
     public static int solve(int[] A) {

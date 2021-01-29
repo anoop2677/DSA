@@ -54,7 +54,7 @@ Output 2:
 
  [ [1, -1] ]
  */
-package sorting2;
+package sorting;
 
 import java.util.Arrays;
 

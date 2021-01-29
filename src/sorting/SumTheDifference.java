@@ -59,7 +59,7 @@ Explanation 2:
 
  Only 1 subsequence of 1 element is formed.
  */
-package sorting2;
+package sorting;
 
 public class SumTheDifference {
 
