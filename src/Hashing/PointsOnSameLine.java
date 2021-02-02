@@ -44,20 +44,11 @@ public class PointsOnSameLine {
                     xdif /= g;
                     Pair p = new Pair(xdif, ydif);
                     map.put(p.toString(), map.getOrDefault(p.toString(), 1) + 1);
-//                    System.out.println(p.toString()+" **** "+map.get(p.toString()));
                     max = Math.max(map.get(p.toString()), max);
                 }
                 max = Math.max(max, vp+1);
             }
-            System.out.print(max+op);
-            if(op == 0) {
-                System.out.print(max+op);
-                maxPoint = Math.max(maxPoint, max + op);
-            }
-            else {
-                System.out.print(max+op+1);
-                maxPoint = Math.max(maxPoint, max + op + 1);
-            }
+            maxPoint = Math.max(maxPoint, max + op);
         }
         return maxPoint;
     }

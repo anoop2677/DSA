@@ -12,8 +12,6 @@ public class CountRightTriangles {
             map.put(A[i],map.getOrDefault(A[i], 0) + 1);
             map1.put(B[i],map1.getOrDefault(B[i], 0) + 1);
         }
-        System.out.println(map);
-        System.out.println(map1);
         for(int i = 0; i < A.length; i++){
             count = (count + (map.get(A[i]) - 1) * (map1.get(B[i]) - 1)) % mod;
         }
