@@ -1,55 +1,84 @@
+/*
+N integers containing only 1, 2 & 3
+Problem Description
+
+Given an integer A. Find and Return first positive A integers in ascending order containing only digits 1, 2 and 3.
+
+NOTE: All the A integers will fit in 32 bit integer.
+
+
+
+Problem Constraints
+1 <= A <= 29500
+
+
+
+Input Format
+The only argument given is integer A.
+
+
+
+Output Format
+Return an integer array denoting the first positive A integers in ascending order containing only digits 1, 2 and 3.
+
+
+
+Example Input
+Input 1:
+
+ A = 3
+Input 2:
+
+ A = 7
+
+
+Example Output
+Output 1:
+
+ [1, 2, 3]
+Output 2:
+
+ [1, 2, 3, 11, 12, 13, 21]
+
+
+Example Explanation
+Explanation 1:
+
+ Output denotes the first 3 integers that contains only digits 1, 2 and 3.
+Explanation 2:
+
+ Output denotes the first 3 integers that contains only digits 1, 2 and 3.
+ */
 package queue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class IntegerContainingOneTwoThree {
-    public static int[] solve(int A) {
-        if(A == 1){
-            return new int[]{1};
-        }
-        if(A == 2){
-            return new int[]{1,2};
-        }
-        if(A == 3){
-            return new int[]{1,2,3};
-        }
-        Queue<Integer> q = new LinkedList<>();
-        int[] ans = new int[A];
-        ans[0] = 1;
-        ans[1] = 2;
-        ans[2] = 3;
+    public static ArrayList<Integer> solve(int A) {
+
+        Queue<Integer> q = new LinkedList<Integer>();
+        ArrayList<Integer> ans = new ArrayList<>();
+
         q.add(1);
         q.add(2);
         q.add(3);
-        int i = 3;
-        while(i <= A){
+
+        while(ans.size() < A)
+        {
             int x = q.peek();
-            int y = x * 10 + 1;
-            ans[i] = y;
-            i++;
-            System.out.println(i + " **** "+ Arrays.toString(ans));
-            if(i == A){
-                return ans;
-            }
-            y = x * 10 + 2;
-            ans[i] = y;
-            i++;
-            System.out.println(i + " **** "+ Arrays.toString(ans));
-            if(i == A){
-                return ans;
-            }
-            y = x * 10 + 3;
-            ans[i] = y;
-            i++;
-            System.out.println(i + " **** "+ Arrays.toString(ans));
+            ans.add(x);
             q.remove();
-            if(i == A){
-                return ans;
-            }
+            q.add(10*x+1);
+            q.add(10*x+2);
+            q.add(10*x+3);
         }
+
         return ans;
+
+
     }
 
     public static void main(String[] args) {
