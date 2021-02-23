@@ -1,3 +1,58 @@
+/*
+Reorder List
+Problem Description
+
+Given a singly linked list A
+
+ A: A0 → A1 → … → An-1 → An
+reorder it to:
+
+ A0 → An → A1 → An-1 → A2 → An-2 → …
+You must do this in-place without altering the nodes' values.
+
+
+
+Problem Constraints
+1 <= |A| <= 106
+
+
+
+Input Format
+The first and the only argument of input contains a pointer to the head of the linked list A.
+
+
+
+Output Format
+Return a pointer to the head of the modified linked list.
+
+
+
+Example Input
+Input 1:
+
+ A = [1, 2, 3, 4, 5]
+Input 2:
+
+ A = [1, 2, 3, 4]
+
+
+Example Output
+Output 1:
+
+ [1, 5, 2, 4, 3]
+Output 2:
+
+ [1, 4, 2, 3]
+
+
+Example Explanation
+Explanation 1:
+
+ The array will be arranged to [A0, An, A1, An-1, A2].
+Explanation 2:
+
+ The array will be arranged to [A0, An, A1, An-1, A2].
+ */
 package LinkedList;
 
 public class ReorderList {
@@ -17,33 +72,31 @@ public class ReorderList {
             prev = curr;
             curr = next;
         }
-        A = prev;
-        return A;
+        return prev;
     }
     public static ListNode reorderList(ListNode A) {
-        int i = 0;
-        ListNode temp = A;
-        ListNode temp1 = A.next;
-        while(temp1 != null && temp1.next != null){
-            temp = temp.next;
-            temp1 = temp1.next.next;
+        ListNode slow = A;
+        ListNode fast = A;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        ListNode node = A;
-        ListNode node1 = temp.next;
-        temp.next = null;
-        node1 = reverse(node1);
+        ListNode node = slow.next;
+        ListNode root = A;
+        slow.next = null;
+        node = reverse(node);
         ListNode temp2 = new ListNode(0);
         ListNode curr = temp2;
-        while (node != null || node1 != null){
+        while (root != null && node != null){
+            if (root != null) {
+                curr.next = root;
+                curr = curr.next;
+                root = root.next;
+            }
             if (node != null) {
                 curr.next = node;
                 curr = curr.next;
                 node = node.next;
-            }
-            if (node1 != null) {
-                curr.next = node1;
-                curr = curr.next;
-                node1 = node1.next;
             }
         }
         temp2 = temp2.next;
